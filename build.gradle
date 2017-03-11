@@ -1,0 +1,77 @@
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.bmuschko:gradle-tomcat-plugin:2.0'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'war'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'com.bmuschko.tomcat'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+// All dependencies versions
+ext {
+    springVersion ='4.2.9.RELEASE'
+    slf4jVersion = '1.7.2'
+    logbackVersion = '1.0.9'
+    springVersion = '4.3.7.RELEASE'
+    springSecurityVersion = '4.2.2.RELEASE'
+    tomcatVersion = '7.0.75'
+    jstlVersion = '1.2'
+    servletApiVersion = '3.0.1'
+}
+
+dependencies {
+	// Logging
+    compile "org.slf4j:slf4j-api:${slf4jVersion}"
+    compile "ch.qos.logback:logback-classic:${logbackVersion}"
+    compile "org.slf4j:jcl-over-slf4j:${slf4jVersion}"
+    
+    // Spring 
+	compile "org.springframework:spring-webmvc:${springVersion}"
+	compile "org.springframework.security:spring-security-web:3.2.10.RELEASE"
+	compile "org.springframework.security:spring-security-config:3.2.10.RELEASE"
+	
+	
+	// dependencies to run on tomcat, are mandatory for tomcat plugin
+    tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+            "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}"
+    tomcat("org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}") {
+        exclude group: 'org.eclipse.jdt.core.compiler', module: 'ecj'
+    }
+	compile "javax.servlet:jstl:${jstlVersion}"
+    providedCompile "javax.servlet:javax.servlet-api:${servletApiVersion}"
+}
+
+// Embeded Tomcat for testing
+// context where tomcat is deployed, by defautl localhost:8080/webmvc
+tomcatRun.contextPath = '/webmvc'
+tomcatRunWar.contextPath = '/webmvc'
+
+//For Eclipse IDE only
+eclipse {
+
+  wtp {
+    component {
+      
+      //define context path, default to project folder name
+      contextPath = 'webmvc'
+      
+    }
+    
+  }
+}
+
