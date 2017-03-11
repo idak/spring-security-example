@@ -27,7 +27,7 @@ username and password ​​must be the same string
 
 @Service
 public class LoginService {
-	public boolean autenticate(String username, String password){
+	public boolean authenticate(String username, String password){
 		return Objects.nonNull(username) && username.equals(password);
 	}
 }
