@@ -5,6 +5,7 @@ Basic Spring Security with custom authentication provider.
 # Requirements
 
 Java Platform (JDK) 8
+
 Gradle 3.x
 
 
