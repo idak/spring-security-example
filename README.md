@@ -7,6 +7,21 @@ Basic Spring Security with custom authentication provider.
 * Java Platform (JDK) 8
 * Gradle 3.x
 
+# API Versions
+
+```groovy
+ext {
+    springVersion         = '4.2.9.RELEASE'
+    slf4jVersion          = '1.7.2'
+    logbackVersion        = '1.0.9'
+    springVersion         = '4.3.7.RELEASE'
+    springSecurityVersion = '4.2.2.RELEASE'
+    tomcatVersion         = '7.0.75'
+    jstlVersion           = '1.2'
+    servletApiVersion     = '3.0.1'
+}
+```
+
 
 # Run application
 
