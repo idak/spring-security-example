@@ -7,7 +7,7 @@ Basic Spring Security with custom authentication provider.
 * Java Platform (JDK) 8
 * Gradle 3.x
 
-# API Versions
+# Dependencies versions
 
 ```groovy
 ext {
