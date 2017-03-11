@@ -4,8 +4,8 @@ Basic Spring Security with custom authentication provider.
 
 # Requirements
 
-Java Platform (JDK) 8
-Gradle 3.x
+* Java Platform (JDK) 8
+* Gradle 3.x
 
 
 # Run application
@@ -16,7 +16,7 @@ Gradle 3.x
  
 ```
 
-Point your browser to http://localhost:8080/webmvc
+Point your browser to [http://localhost:8080/webmvc](http://localhost:8080/webmvc)
 
 # Authentication
 
