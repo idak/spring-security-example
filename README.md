@@ -21,7 +21,8 @@ Point your browser to http://localhost:8080/webmvc
 # Authentication
 
 
-The values ​​must be the same
+username and password ​​must be the same string
+
 ```java
 
 @Service
